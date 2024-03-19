@@ -1,4 +1,4 @@
-package com.programmingtechie.orderservice.dto;
+package com.springboot.orderservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,10 +1,7 @@
-package com.programmingtechie.orderservice.controller;
+package com.springboot.orderservice.controller;
 
-import com.programmingtechie.orderservice.dto.OrderRequest;
-import com.programmingtechie.orderservice.service.OrderService;
-import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
-import io.github.resilience4j.retry.annotation.Retry;
-import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
+import com.springboot.orderservice.dto.OrderRequest;
+import com.springboot.orderservice.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -22,9 +19,9 @@ public class OrderController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public CompletableFuture<String> placeOrder(@RequestBody OrderRequest orderRequest) {
+    public void placeOrder(@RequestBody OrderRequest orderRequest) {
         log.info("Placing Order");
-        return CompletableFuture.supplyAsync(() -> orderService.placeOrder(orderRequest));
+        orderService.placeOrder(orderRequest);
     }
 
 }
