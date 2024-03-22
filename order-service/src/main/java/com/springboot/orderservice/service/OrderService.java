@@ -31,10 +31,11 @@ public class OrderService {
                 .toList();
 
         order.setOrderLineItemsList(orderLineItems);
-
-        List<String> skuCodes = order.getOrderLineItemsList().stream()
-                .map(OrderLineItems::getSkuCode)
-                .toList();
+        orderRepository.save(order);
+//
+//        List<String> skuCodes = order.getOrderLineItemsList().stream()
+//                .map(OrderLineItems::getSkuCode)
+//                .toList();
     }
 
     private OrderLineItems mapToDto(OrderLineItemsDto orderLineItemsDto) {
